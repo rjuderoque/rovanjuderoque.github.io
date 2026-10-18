@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Portfolio – Front-end Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top">Portfolio</a>
+    <ul>
+      <li class="hide-s"><a href="#work">Work</a></li>
+      <li class="hide-s"><a href="#files">Files</a></li>
+      <li class="hide-s"><a href="#about">About</a></li>
+      <li><button id="theme" aria-label="Toggle dark mode">◐</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>I build fast, <mark>friendly</mark> websites.</h1>
+      <p>I’m Rovan Jude Roque, a third year who turns design ideas into accessible, quick-loading web apps with HTML, CSS and JavaScript.</p>
+      <div class="btns">
+        <a class="btn primary" href="#work">See my portfolio</a>
+      </div>
+    </div>
+    <div class="code" aria-label="Code snippet describing the developer">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <pre id="typed" aria-live="off"></pre>
+    </div>
+  </div>
+
+  <section id="work"><div class="wrap">
+    <h2>Selected work</h2>
+    <p class="lead">A few projects I’m proud of. Filter by what I used to build them.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="js">JavaScript</button>
+      <button aria-pressed="false" data-f="css">CSS</button>
+      <button aria-pressed="false" data-f="api">API</button>
+    </div>
+    <!-- Each "View project" link points to a file inside the projects/ folder.
+         Rename the files below to match your real file names. -->
+    <div class="grid">
+      <article class="proj" data-t="js api"><h3>Weatherly</h3><p>A forecast app with hourly charts and saved cities, built on a public weather API.</p><div class="tags"><span>JavaScript</span><span>REST API</span></div><a class="open" href="projects/weatherly.pdf" target="_blank" rel="noopener">View project</a></article>
+      <article class="proj" data-t="css"><h3>Bloom Bakery</h3><p>A responsive storefront with an animated menu and a mobile-first layout.</p><div class="tags"><span>HTML</span><span>CSS Grid</span></div><a class="open" href="projects/bloom-bakery.pdf" target="_blank" rel="noopener">View project</a></article>
+      <article class="proj" data-t="js"><h3>TaskFlow</h3><p>A drag-and-drop task board that saves your work in the browser.</p><div class="tags"><span>JavaScript</span><span>localStorage</span></div><a class="open" href="projects/taskflow.pdf" target="_blank" rel="noopener">View project</a></article>
+      <article class="proj" data-t="css js"><h3>Pixel Notes</h3><p>A note-taking app with themes, search and keyboard shortcuts.</p><div class="tags"><span>CSS</span><span>JavaScript</span></div><a class="open" href="projects/pixel-notes.pdf" target="_blank" rel="noopener">View project</a></article>
+      <article class="proj" data-t="api js"><h3>Bookshelf</h3><p>Search millions of books and build a reading list you can share.</p><div class="tags"><span>JavaScript</span><span>Open Library API</span></div><a class="open" href="projects/bookshelf.pdf" target="_blank" rel="noopener">View project</a></article>
+      <article class="proj" data-t="css"><h3>Studio Lumen</h3><p>A photography portfolio with a fast, accessible image gallery.</p><div class="tags"><span>HTML</span><span>CSS</span></div><a class="open" href="projects/studio-lumen.pdf" target="_blank" rel="noopener">View project</a></article>
+    </div>
+  </div></section>
+
+  <section id="files"><div class="wrap">
+    <h2>My files</h2>
+    <p class="lead">Choose a folder on your computer to list its files here. This works in Chrome and Edge, and only for you.</p>
+    <button class="btn primary" id="pick" type="button">Choose my folder</button>
+    <p id="picknote" class="lead" role="status"></p>
+    <ul id="list"></ul>
+  </div></section>
+
+  <section id="about"><div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p class="lead" style="margin-bottom:16px">Based in the Philippines, working with clients worldwide.</p>
+      <p>I’ve spent four years building websites for small businesses, startups and agencies. I care about clean code, clear layouts and pages that work for everyone, on any device.</p>
+      <p>When I’m not coding, I’m learning something new, usually a framework, sometimes a recipe.</p>
+    </div>
+    <div class="skills" id="skills">
+      <div class="skill"><label><span>HTML & CSS</span><span>95%</span></label><div class="bar-t"><div data-w="95"></div></div></div>
+      <div class="skill"><label><span>JavaScript</span><span>90%</span></label><div class="bar-t"><div data-w="90"></div></div></div>
+      <div class="skill"><label><span>Responsive design</span><span>92%</span></label><div class="bar-t"><div data-w="92"></div></div></div>
+      <div class="skill"><label><span>Accessibility</span><span>85%</span></label><div class="bar-t"><div data-w="85"></div></div></div>
+      <div class="skill"><label><span>Git & tooling</span><span>80%</span></label><div class="bar-t"><div data-w="80"></div></div></div>
+    </div>
+  </div></section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
