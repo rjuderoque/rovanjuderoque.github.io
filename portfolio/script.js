@@ -38,72 +38,15 @@ $(function () {
   });
   $("#year").text(new Date().getFullYear());
 
-  // ---------- Profile photo upload ----------
-  const PHOTO_KEY = "profilePhoto";
-  const PHOTO_W = 640, PHOTO_H = 800;          // 4:5 portrait, matches the frame
-  const $img = $("#photoImg"), $initials = $("#photoInitials");
-  const $note = $("#photoNote"), $remove = $("#photoRemove"), $avatar = $("#avatar");
-
-  function applyPhoto(src) {
-    if (src) {
-      $img.attr("src", src).prop("hidden", false);
-      $initials.prop("hidden", true);
-      $remove.prop("hidden", false);
-      $avatar.addClass("has-photo").css("background-image", "url(" + src + ")");
-    } else {
-      $img.removeAttr("src").prop("hidden", true);
-      $initials.prop("hidden", false);
-      $remove.prop("hidden", true);
-      $avatar.removeClass("has-photo").css("background-image", "");
-    }
-  }
-
-  // Center-crop to 4:5 and shrink so it is light enough to store.
-  function cropToDataUrl(img) {
-    const canvas = document.createElement("canvas");
-    canvas.width = PHOTO_W; canvas.height = PHOTO_H;
-    const target = PHOTO_W / PHOTO_H, ratio = img.width / img.height;
-    let sw = img.width, sh = img.height, sx = 0, sy = 0;
-    if (ratio > target) { sw = img.height * target; sx = (img.width - sw) / 2; }
-    else { sh = img.width / target; sy = (img.height - sh) / 2; }
-    canvas.getContext("2d").drawImage(img, sx, sy, sw, sh, 0, 0, PHOTO_W, PHOTO_H);
-    return canvas.toDataURL("image/jpeg", 0.85);
-  }
-
-  try { applyPhoto(localStorage.getItem(PHOTO_KEY)); } catch (e) { applyPhoto(null); }
-
-  $("#photoBtn").on("click", function () { $("#photoInput").trigger("click"); });
-
-  $("#photoInput").on("change", function () {
-    const file = this.files && this.files[0];
-    this.value = "";                            // allows picking the same file again
-    if (!file) return;
-    if (!file.type.startsWith("image/")) { $note.text("Please choose an image file."); return; }
-    const reader = new FileReader();
-    reader.onerror = function () { $note.text("Couldn't read that file. Try another image."); };
-    reader.onload = function () {
-      const img = new Image();
-      img.onerror = function () { $note.text("That image couldn't be opened. Try a JPG or PNG."); };
-      img.onload = function () {
-        const dataUrl = cropToDataUrl(img);
-        applyPhoto(dataUrl);                    // shows immediately
-        try {
-          localStorage.setItem(PHOTO_KEY, dataUrl);
-          $note.text("Photo updated and saved on this browser.");
-        } catch (e) {
-          $note.text("Photo updated, but it couldn't be saved (storage is full or blocked).");
-        }
-      };
-      img.src = reader.result;
-    };
-    reader.readAsDataURL(file);
-  });
-
-  $remove.on("click", function () {
-    try { localStorage.removeItem(PHOTO_KEY); } catch (e) {}
-    applyPhoto(null);
-    $note.text("Photo removed.");
-  });
+  // ---------- Profile photo (fixed file: images/profile.jpg) ----------
+  // The <img> in index.html loads it automatically. This only reuses the same
+  // file for the small avatar in the jQuery demo, once it is known to exist.
+  const PHOTO_SRC = "images/profile.jpg";
+  const probe = new Image();
+  probe.onload = function () {
+    $("#avatar").addClass("has-photo").css("background-image", "url(" + PHOTO_SRC + ")");
+  };
+  probe.src = PHOTO_SRC;
 
   // ---------- Activity cards: open / close demos ----------
   function closeDemos() {
