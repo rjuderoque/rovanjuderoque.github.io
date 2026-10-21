@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rovan Jude Roque | Portfolio</title>
+  <meta name="description" content="Portfolio of Rovan Jude Roque with interactive JavaScript and jQuery activities.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#home" class="logo">RJR<span>.</span></a>
+    <nav aria-label="Main">
+      <a href="#about">About Me</a>
+      <a href="#activities">Activities</a>
+      <a href="#contact">Quotes</a>
+    </nav>
+    <button id="theme" class="icon-btn" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">Welcome to my Portfolio</p>
+      <h1>Hi, I'm <span class="grad">Rovan Jude Roque</span></h1>
+      <p class="lead">I'm a Third Year BSCS in Pambayang Dalubhasaan ng Marilao</p>
+      <div class="cta">
+        <a class="btn primary" href="#activities">Try my previous activities</a>
+        <a class="btn" href="#about">About me</a>
+      </div>
+    </section>
+
+    <!-- ABOUT ME (now includes the profile photo card) -->
+    <section id="about" class="wrap">
+      <h2>About Me</h2>
+      <div class="grid3">
+        <article class="card c-sky photo-card">
+          <div class="photo-frame" id="photoFrame">
+            <span class="photo-initials" id="photoInitials" aria-hidden="true">RJ</span>
+            <img id="photoImg" alt="Profile photo of Rovan Jude Roque" hidden>
+          </div>
+          <h3>My Photo</h3>
+          <div class="photo-actions">
+            <input type="file" id="photoInput" accept="image/*" hidden>
+            <button type="button" id="photoBtn" class="btn primary">Upload photo</button>
+            <button type="button" id="photoRemove" class="btn" hidden>Remove</button>
+            <p id="photoNote" class="photo-note" aria-live="polite"></p>
+          </div>
+        </article>
+        <article class="card c-coral"><div class="thumb" aria-hidden="true">👋</div><h3>Who Am I</h3><p>A 3rd year student who really enjoy and find front-end development interesting and learning something new with every activity.</p></article>
+        <article class="card c-sun"><div class="thumb" aria-hidden="true">🎮</div><h3>Hobby</h3><p class="chips"><span>Playing Online Games</span><span>Eating</span><span>Reading Manhwa</span><span>Eating</span></p></article>
+        <article class="card c-mint"><div class="thumb" aria-hidden="true">🎯</div><h3>Goal</h3><p>My Goal is to learn on every failure i face and use it as a strenght to succeed.</p></article>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES (same card layout as About Me) -->
+    <section id="activities" class="wrap">
+      <h2>My Previous Activities</h2>
+      <p class="section-sub">Live demos of my previous coursework. Choose an activity and try it right here.</p>
+
+      <div class="grid3" id="activityGrid">
+        <article class="card c-coral">
+          <div class="thumb" aria-hidden="true">🖱️</div>
+          <p class="meta">Activity 01</p>
+          <h3>DOM Events</h3>
+          <p>A profile card that reacts to clicks, double-clicks, hovering and typing, and reports each event as it happens.</p>
+          <p class="chips"><span>JavaScript</span><span>DOM</span><span>addEventListener</span></p>
+          <button type="button" class="btn open-demo" data-demo="act1" aria-expanded="false" aria-controls="act1">Open demo</button>
+        </article>
+        <article class="card c-sun">
+          <div class="thumb" aria-hidden="true">⏳</div>
+          <p class="meta">Activity 02</p>
+          <h3>Async Dashboard</h3>
+          <p>Three tasks load at different speeds. <code>Promise.all</code> waits for every one before the dashboard is ready.</p>
+          <p class="chips"><span>JavaScript</span><span>Promise.all</span><span>setTimeout</span></p>
+          <button type="button" class="btn open-demo" data-demo="act2" aria-expanded="false" aria-controls="act2">Open demo</button>
+        </article>
+        <article class="card c-mint">
+          <div class="thumb" aria-hidden="true">🧑‍🎓</div>
+          <p class="meta">Activity 03</p>
+          <h3>jQuery Profile</h3>
+          <p>Click, double-click and choose options to see events and effects in action.</p>
+          <p class="chips"><span>jQuery</span><span>Events</span><span>Effects</span></p>
+          <button type="button" class="btn open-demo" data-demo="act3" aria-expanded="false" aria-controls="act3">Open demo</button>
+        </article>
+        <!-- New activities are added from script.js (MY_ACTIVITIES) and appear here -->
+      </div>
+
+      <!-- ACTIVITY 1: DOM events -->
+      <div id="act1" class="card demo" hidden>
+        <header class="panel-head">
+          <div>
+            <h3>DOM Events</h3>
+            <p class="muted">Interact with the card to trigger <code>click</code>, <code>dblclick</code>, <code>mouseover</code>, <code>focus</code> and <code>input</code> events.</p>
+          </div>
+          <button type="button" class="btn close-demo">Close</button>
+        </header>
+        <div class="grid2">
+          <div class="card sub ev-card">
+            <img src="images/activity1.png" id="evImg" class="ev-img" width="96" height="96" alt="Profile picture">
+            <h4 id="evName">Jude</h4>
+            <p class="muted" id="evCourse">BS Computer Science</p>
+            <input type="text" id="evInput" class="ev-input" placeholder="Type a new name" aria-label="Type a new name">
+            <select id="evYear" class="ev-year" aria-label="Year level">
+              <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option>
+            </select>
+            <div class="row">
+              <button id="evClick" class="btn">Click</button>
+              <button id="evDbl" class="btn">Double Click</button>
+            </div>
+          </div>
+          <div class="card sub">
+            <h4>Try it</h4>
+            <div class="information">
+              <p><b>Click</b> <span>Name becomes "Bituin"</span></p>
+              <p><b>Double click</b> <span>Name turns green</span></p>
+              <p><b>Hover the photo</b> <span>Photo zooms in</span></p>
+              <p><b>Select the input</b> <span>Field turns yellow</span></p>
+              <p><b>Type + press Enter</b> <span>Name updates</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="console"><span aria-hidden="true">›</span><p id="evStatus" class="status" aria-live="polite">Welcome Back</p></div>
+      </div>
+
+      <!-- ACTIVITY 2: JavaScript Promises -->
+      <div id="act2" class="card demo" hidden>
+        <header class="panel-head">
+          <div>
+            <h3>Async Dashboard</h3>
+            <p class="muted">Three tasks load at different speeds. <code>Promise.all</code> waits for every one before the dashboard is ready.</p>
+          </div>
+          <button type="button" class="btn close-demo">Close</button>
+        </header>
+        <div class="controls">
+          <button id="loadbtn" class="btn primary">Load Dashboard</button>
+          <p id="message" class="status" aria-live="polite">Waiting...</p>
+        </div>
+        <ul class="tasks">
+          <li id="profile"><span class="ico" aria-hidden="true">👤</span><span class="name">Profile<small>Loads in 1s</small></span><b class="pill">Waiting</b><i class="bar"></i></li>
+          <li id="grades"><span class="ico" aria-hidden="true">📊</span><span class="name">Grades<small>Loads in 2s</small></span><b class="pill">Waiting</b><i class="bar"></i></li>
+          <li id="schedule"><span class="ico" aria-hidden="true">🗓️</span><span class="name">Schedule<small>Loads in 3s</small></span><b class="pill">Waiting</b><i class="bar"></i></li>
+        </ul>
+      </div>
+
+      <!-- ACTIVITY 3: jQuery -->
+      <div id="act3" class="card demo" hidden>
+        <header class="panel-head">
+          <div>
+            <h3>jQuery Profile &amp; Student List</h3>
+            <p class="muted">Click, double-click and choose options to see events and effects in action.</p>
+          </div>
+          <button type="button" class="btn close-demo">Close</button>
+        </header>
+        <div class="grid2">
+          <div class="card sub">
+            <div class="profile-top">
+              <span class="avatar" id="avatar" aria-hidden="true">RJ</span>
+              <div>
+                <h4 id="h1">Welcome, Students!</h4>
+                <p class="muted">Welcome to my interactive profile!</p>
+              </div>
+            </div>
+            <div class="information">
+              <p><b>Name:</b> Rovan Jude Roque</p>
+              <p><b>Course:</b> <span id="course">BSIT</span></p>
+              <p><b>Year Level:</b> 3rd Year</p>
+            </div>
+            <div class="row">
+              <button id="btn1" class="btn">Change Title</button>
+              <button id="btn2" class="btn">Hide Profile</button>
+              <button id="btn3" class="btn">Show Profile</button>
+            </div>
+            <label class="field">Choose your course
+              <select id="select"><option>BSIT</option><option>BSCS</option><option>BSIS</option></select>
+            </label>
+          </div>
+
+          <div class="card sub">
+            <h4>Student List</h4>
+            <div class="table-wrap">
+              <table id="students">
+                <thead><tr><th>No.</th><th>Name</th><th>Course</th><th>Year</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Rovan</td><td>BSIT</td><td>3rd</td></tr>
+                  <tr><td>2</td><td>Pedro</td><td>BSIS</td><td>3rd</td></tr>
+                  <tr><td>3</td><td>Juan</td><td>BSCS</td><td>3rd</td></tr>
+                  <tr><td>4</td><td>Jquery</td><td>BSCS</td><td>2nd</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <button id="odd" class="btn">Odd</button>
+              <button id="even" class="btn">Even</button>
+              <button id="hide" class="btn">Hide Table</button>
+              <button id="show" class="btn">Show Table</button>
+            </div>
+          </div>
+        </div>
+        <div class="console"><span aria-hidden="true">›</span><p id="log" class="status" aria-live="polite">Interact with the buttons above.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap">
+      <h2>My Favorite Quotes</h2>
+      <div class="card"><p>“Someone who can't sacrifice anything, can't ever change anything.”</p>
+      <p>“I have no enemies.”</p>
+      <p>“People’s lives don’t end when they die, it ends when they lose faith.”</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>©<span id="year"></span> Rovan Jude Roque</footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
